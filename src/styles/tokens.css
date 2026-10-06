@@ -1,0 +1,102 @@
+/* Support Nurse — Design Tokens (fonte: Manual de Identidade Visual) */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* ---------- Cores de marca ---------- */
+  --sn-navy:        #242b55; /* Azul Marinho — cor principal */
+  --sn-blue:        #1370b5; /* Azul — ações, links, ícones */
+  --sn-gold:        #ecab5b; /* Dourado — destaque, CTA, filetes */
+  --sn-bronze:      #935f37; /* Bronze — apoio */
+  --sn-graphite:    #3c3c3a; /* Grafite — texto corrido */
+  --sn-white:       #ffffff;
+  --sn-silver:      linear-gradient(135deg, #8e8e8e 0%, #d6d6d6 45%, #9a9a9a 70%, #c4c4c4 100%); /* Prata metálico (símbolo/logo) */
+
+  /* ---------- Escalas derivadas ---------- */
+  --sn-navy-900: #151a3a;
+  --sn-navy-800: #1a2048;
+  --sn-navy-700: #242b55;
+  --sn-navy-600: #2f376a;
+  --sn-navy-100: #e6e8f1;
+  --sn-navy-50:  #f3f4f9;
+
+  --sn-blue-700: #0e5a93;
+  --sn-blue-500: #1370b5;
+  --sn-blue-100: #dcebf6;
+
+  --sn-gold-600: #d8913a;
+  --sn-gold-500: #ecab5b;
+  --sn-gold-100: #fbeedc;
+
+  --sn-gray-900: #3c3c3a;
+  --sn-gray-600: #6b6b68;
+  --sn-gray-300: #d4d4d1;
+  --sn-gray-100: #f1f1ef;
+
+  /* ---------- Semânticas ---------- */
+  --color-bg:            var(--sn-white);
+  --color-bg-alt:        var(--sn-navy-50);
+  --color-bg-inverse:    var(--sn-navy);
+  --color-text:          var(--sn-graphite);
+  --color-text-heading:  var(--sn-navy);
+  --color-text-muted:    var(--sn-gray-600);
+  --color-text-inverse:  var(--sn-white);
+  --color-accent:        var(--sn-gold);
+  --color-link:          var(--sn-blue);
+  --color-link-hover:    var(--sn-blue-700);
+  --color-border:        var(--sn-gray-300);
+  --color-focus:         var(--sn-blue);
+  --color-success:       #2e8b57;
+  --color-danger:        #c0392b;
+
+  /* ---------- Tipografia ---------- */
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif; /* primária: títulos (regular e itálico) */
+  --font-body:    "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif; /* secundária: texto, UI */
+
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.5rem;
+  --fs-2xl:  2rem;
+  --fs-3xl:  2.75rem;
+  --fs-4xl:  3.75rem;
+  --fs-5xl:  5rem;
+
+  --lh-tight: 1.1;
+  --lh-snug:  1.3;
+  --lh-base:  1.6;
+
+  --tracking-caps: 0.14em;
+
+  /* ---------- Espaçamento (base 4px) ---------- */
+  --space-1: 4px;  --space-2: 8px;   --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px;  --space-7: 48px; --space-8: 64px;
+  --space-9: 96px; --space-10: 128px;
+
+  /* ---------- Raios, bordas, sombras ---------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --radius-symbol: 28%; /* cantos do losango do símbolo */
+
+  --rule-gold: 3px solid var(--sn-gold); /* filete dourado sob títulos */
+
+  --shadow-sm: 0 1px 3px rgba(36, 43, 85, .10);
+  --shadow-md: 0 8px 24px rgba(36, 43, 85, .12);
+  --shadow-lg: 0 20px 48px rgba(36, 43, 85, .18);
+
+  /* ---------- Layout ---------- */
+  --container: 1200px;
+  --container-narrow: 760px;
+  --gutter: 24px;
+
+  --bp-sm: 640px; --bp-md: 960px; --bp-lg: 1200px;
+
+  /* ---------- Movimento ---------- */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 150ms; --dur-base: 250ms; --dur-slow: 500ms;
+
+  /* ---------- Padrão de ondas ---------- */
+  --pattern-ondas: url("/patterns/ondas.svg");
+}

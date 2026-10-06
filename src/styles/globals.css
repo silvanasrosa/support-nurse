@@ -1,0 +1,160 @@
+@import "./tokens.css";
+@import "tailwindcss";
+
+/* Tokens da marca expostos ao Tailwind (fonte unica: tokens.css) */
+@theme inline {
+  --color-navy: var(--sn-navy);
+  --color-navy-900: var(--sn-navy-900);
+  --color-navy-800: var(--sn-navy-800);
+  --color-navy-600: var(--sn-navy-600);
+  --color-navy-100: var(--sn-navy-100);
+  --color-navy-50: var(--sn-navy-50);
+  --color-brand-blue: var(--sn-blue);
+  --color-brand-blue-700: var(--sn-blue-700);
+  --color-gold: var(--sn-gold);
+  --color-gold-600: var(--sn-gold-600);
+  --color-bronze: var(--sn-bronze);
+  --color-graphite: var(--sn-graphite);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* faixa continua (marquee): o conteudo vem duplicado e anda metade da largura */
+@theme {
+  --animate-marquee: marquee 38s linear infinite;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
+/* telas baixas (ate ~900px de altura, a maioria dos notebooks): compacta blocos presos na rolagem */
+@custom-variant short (@media (max-height: 56rem));
+
+/*
+ * Margem lateral unica do site (alinha todas as secoes com o conteudo da hero).
+ * site-gutter: secoes "soltas" na pagina (inclui a borda de 8/12px do cartao da hero).
+ * card-gutter: conteudo dentro de cartoes com a mesma borda (hero, secoes azul-marinho).
+ * Soma: 28px (celular) | 44px (sm) | 52px (lg) | 68px (xl)
+ */
+@utility site-gutter {
+  padding-inline: 1.75rem;
+  @media (width >= 40rem) { padding-inline: 2.75rem; }
+  @media (width >= 64rem) { padding-inline: 3.25rem; }
+  @media (width >= 80rem) { padding-inline: 4.25rem; }
+}
+@utility card-gutter {
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) { padding-inline: 2rem; }
+  @media (width >= 64rem) { padding-inline: 2.5rem; }
+  @media (width >= 80rem) { padding-inline: 3.5rem; }
+}
+
+html {
+  background: #eef0f8;
+  scrollbar-gutter: stable;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
+
+:focus-visible {
+  outline: 3px solid var(--sn-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Vidro reutilizavel */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(36, 43, 85, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+}
+.glass-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(18px) saturate(1.3);
+}
+
+/* Anel rebaixado ("entalhe") que abraca cada grupo do menu */
+.nav-ring {
+  position: relative;
+  border-radius: 999px;
+  padding: 6px;
+  /* fundo claro e quase opaco: o anel e os recortes curvos ficam iguais sobre fundo claro ou escuro (cabelo, painel azul) */
+  background: linear-gradient(145deg, rgba(218, 223, 240, 0.86), rgba(255, 255, 255, 0.78));
+  /* Sem sombra externa e sem backdrop-filter: o desfoque do fundo ignorava o recorte em ponte
+     e aparecia como um halo retangular dentro das curvas. */
+  box-shadow: inset 0 2px 6px rgba(36, 43, 85, 0.1), inset 0 -1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Variante do anel para cartoes (cantos menos arredondados que a capsula do menu) */
+.nav-ring-card { border-radius: 2.1rem; }
+/* Anel opaco: cards que se sobrepoem (pilha no celular) nao deixam ver o de baixo */
+.nav-ring-solid { background: linear-gradient(145deg, #dfe4f1, #fbfcff); }
+
+/* Vidro liquido: quase transparente, com reflexos de borda e brilho interno */
+.glass-liquid {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0.22) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+    inset 1.5px 0 1px rgba(255, 255, 255, 0.55),
+    inset 0 -1.5px 1px rgba(255, 255, 255, 0.4),
+    inset -1px 0 1px rgba(255, 255, 255, 0.25),
+    0 8px 22px rgba(36, 43, 85, 0.14);
+  -webkit-backdrop-filter: blur(14px) saturate(1.9) brightness(1.06);
+  backdrop-filter: blur(14px) saturate(1.9) brightness(1.06);
+  transition: background 0.35s, box-shadow 0.35s;
+}
+.glass-liquid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 20% 0%, rgba(255, 255, 255, 0.55), transparent 55%);
+  opacity: 0.8;
+}
+.glass-liquid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.8) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease);
+}
+.glass-liquid:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2) 55%, rgba(255, 255, 255, 0.35)); }
+.glass-liquid:hover::after { transform: translateX(120%); }
+.glass-liquid-accent {
+  background: linear-gradient(135deg, rgba(236, 171, 91, 0.5) 0%, rgba(236, 171, 91, 0.16) 55%, rgba(255, 255, 255, 0.28) 100%);
+}
+
+@keyframes drift-a { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(8vw, 6vh) scale(1.15); } }
+@keyframes drift-b { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-6vw, 9vh) scale(1.2); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- Padrao de ondas da marca: tom sobre tom, emenda invisivel (periodico em X e Y) -->
+  <rect width="120" height="120" fill="#242b55"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M30 -120 C50 -100, 50 -80, 30 -60 C10 -40, 10 -20, 30 0 C50 20, 50 40, 30 60 C10 80, 10 100, 30 120 C50 140, 50 160, 30 180 C10 200, 10 220, 30 240" stroke="#1f2550" stroke-width="16"/>
+    <path d="M90 -120 C110 -100, 110 -80, 90 -60 C70 -40, 70 -20, 90 0 C110 20, 110 40, 90 60 C70 80, 70 100, 90 120 C110 140, 110 160, 90 180 C70 200, 70 220, 90 240" stroke="#1f2550" stroke-width="16"/>
+    <path d="M37 -120 C57 -100, 57 -80, 37 -60 C17 -40, 17 -20, 37 0 C57 20, 57 40, 37 60 C17 80, 17 100, 37 120 C57 140, 57 160, 37 180 C17 200, 17 220, 37 240" stroke="#ffffff" stroke-opacity="0.045" stroke-width="3"/>
+    <path d="M97 -120 C117 -100, 117 -80, 97 -60 C77 -40, 77 -20, 97 0 C117 20, 117 40, 97 60 C77 80, 77 100, 97 120 C117 140, 117 160, 97 180 C77 200, 77 220, 97 240" stroke="#ffffff" stroke-opacity="0.045" stroke-width="3"/>
+  </g>
+</svg>
