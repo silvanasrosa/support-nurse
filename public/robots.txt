@@ -1,0 +1,21 @@
+# Support Nurse - https://supportnurse.com.br
+User-agent: *
+Allow: /
+
+# Buscadores e assistentes de IA sao bem-vindos
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://supportnurse.com.br/sitemap.xml

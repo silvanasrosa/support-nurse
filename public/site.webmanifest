@@ -1,0 +1,14 @@
+{
+  "name": "Support Nurse Home Care Premium",
+  "short_name": "Support Nurse",
+  "description": "Home care premium de alta complexidade em São Paulo desde 2011.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fd",
+  "theme_color": "#242b55",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
