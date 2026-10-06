@@ -55,6 +55,28 @@ html {
   scrollbar-gutter: stable;
 }
 
+/* Maozinha em tudo que e clicavel (o Tailwind v4 deixa botoes com o ponteiro normal); desabilitado fica normal.
+   Na camada base: uma classe de cursor no componente (ex.: cursor-grab do carrossel) continua valendo. */
+@layer base {
+  button,
+  [role="button"],
+  [role="tab"],
+  [role="radio"],
+  [role="checkbox"],
+  [role="switch"],
+  [role="option"],
+  summary,
+  label[for],
+  select,
+  a[href] {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: default;
+  }
+}
+
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }

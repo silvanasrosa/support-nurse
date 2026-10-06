@@ -4,6 +4,8 @@ import { gsap } from '@/lib/scroll'
 
 /** Desktop: altura da faixa acima dos cards onde corre a linha. */
 export const PULSE_BAND = 88
+/** Desktop: rolagem (px) que a secao continua presa depois de a linha chegar ao fim, para dar tempo de ler. */
+export const PIN_HOLD = 320
 /** Vertical: distancia do no ao topo do card (altura do selo da etapa). */
 const NODE_TOP = 44
 
@@ -59,10 +61,14 @@ type Props = {
   onActive: (count: number) => void
 }
 
+/** Topo (px) em que o container preso (sticky) para na tela. */
+const stickyTop = (el: HTMLElement) => parseFloat(getComputedStyle(el).top) || 0
+
 /**
  * Linha do batimento que se desenha com a rolagem, com o orbe correndo por ela.
- * Fica dentro do container da trilha (position relative) e mede os cards marcados com data-pulse-node.
+ * Fica dentro do container da trilha (relative ou sticky) e mede os cards marcados com data-pulse-node.
  * onActive recebe quantas etapas o orbe ja alcancou.
+ * Desktop: o container fica preso (sticky) dentro de uma trilha mais alta; a linha corre enquanto ele esta preso.
  */
 export function PulseTrack({ vertical, active, onActive }: Props) {
   const svgRef = useRef<SVGSVGElement>(null)
@@ -130,13 +136,18 @@ export function PulseTrack({ vertical, active, onActive }: Props) {
         p: 1,
         ease: 'none',
         onUpdate: () => render(proxy.p),
-        scrollTrigger: {
-          trigger: box,
-          // vertical: o orbe fica parado a 60% da altura da tela enquanto a pagina rola
-          start: vertical ? 'top 60%' : 'top 78%',
-          end: vertical ? 'bottom 60%' : 'bottom 62%',
-          scrub: 0.6,
-        },
+        scrollTrigger: vertical
+          ? // vertical: o orbe fica parado a 60% da altura da tela enquanto a pagina rola
+            { trigger: box, start: 'top 60%', end: 'bottom 60%', scrub: 0.6 }
+          : // horizontal: do momento em que o container prende na tela (a trilha alta e o pai dele) ate PIN_HOLD
+            // antes de soltar: a linha chega ao fim e a secao ainda fica parada um pouco para leitura
+            {
+              trigger: box.parentElement,
+              start: () => `top ${stickyTop(box)}px`,
+              end: () => `bottom ${stickyTop(box) + box.offsetHeight + PIN_HOLD}px`,
+              scrub: 0.6,
+              invalidateOnRefresh: true,
+            },
       })
     })
     mm.add('(prefers-reduced-motion: reduce)', () => {
