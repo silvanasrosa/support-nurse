@@ -1,3 +1,4 @@
+import { startTransition, useEffect, useState } from 'react'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
 import { useHashLanding } from '@/hooks/useHashLanding'
@@ -19,25 +20,38 @@ export { SmoothScroll } from '@/components/layout/SmoothScroll'
  * enquanto a abertura roda: o preloader aparece sem esperar por esse codigo.
  */
 export default function HomeSections() {
+  // A primeira tela (hero) monta ja; o resto monta logo depois, em segundo plano e em pedacos
+  // (startTransition), para nao travar o celular num bloco unico quando a abertura termina.
+  const [rest, setRest] = useState(false)
+  useEffect(() => startTransition(() => setRest(true)), [])
+
   // chegou com ancora (ex.: menu da pagina Quem somos): vai para a secao quando as secoes estiverem montadas
-  useHashLanding(true)
+  useHashLanding(rest)
 
   return (
     <>
       <main>
         <Hero />
-        <Specialties />
-        <Catalog />
-        <HowItWorks />
-        <Founder />
-        <Team />
-        <Benefits />
-        <Results />
-        <Faq />
-        <FinalCta />
+        {rest && (
+          <>
+            <Specialties />
+            <Catalog />
+            <HowItWorks />
+            <Founder />
+            <Team />
+            <Benefits />
+            <Results />
+            <Faq />
+            <FinalCta />
+          </>
+        )}
       </main>
-      <Footer />
-      <WhatsAppFab />
+      {rest && (
+        <>
+          <Footer />
+          <WhatsAppFab />
+        </>
+      )}
     </>
   )
 }

@@ -1,9 +1,7 @@
 import { animate, motion, useMotionTemplate, useMotionValue } from 'motion/react'
-import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { canUseWebGL } from '@/lib/webgl'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { OrbStatic } from '@/components/ui/OrbStatic'
 import { layoutRect, type IntroPhase } from './intro'
-
-const SymbolOrb = lazy(() => import('@/components/three/SymbolOrb'))
 
 /*
  * Abertura (~4,5s):
@@ -224,12 +222,9 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
           style={{ x, y, opacity: orbOpacity, width: S, height: S, filter: 'drop-shadow(0 10px 24px rgba(36,43,85,0.35))' }}
           aria-hidden
         >
-          <span className="absolute inset-[3%] rounded-full" style={{ background: ORB_FILL }} />
-          {canUseWebGL() && (
-            <Suspense fallback={null}>
-              <SymbolOrb />
-            </Suspense>
-          )}
+          <span className="absolute inset-[3%]">
+            <OrbStatic background={ORB_FILL} />
+          </span>
         </motion.div>
       </div>
 

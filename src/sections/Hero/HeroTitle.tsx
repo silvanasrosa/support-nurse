@@ -1,9 +1,10 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { CtaButton } from '@/components/ui/CtaButton'
 import { useIntro } from '@/components/layout/intro'
 import { hero } from '@/content/hero'
-import { canUseWebGL } from '@/lib/webgl'
+import { OrbStatic } from '@/components/ui/OrbStatic'
+import { onFirstInteraction, wants3D } from '@/lib/webgl'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -12,16 +13,12 @@ const SymbolOrb = lazy(() => import('@/components/three/SymbolOrb'))
 /** Orbe 3D que substitui o primeiro "o" do titulo (assinatura da referencia): esfera com o simbolo da marca embutido. */
 function Orb() {
   const reduce = !!useReducedMotion()
-  const [webgl] = useState(canUseWebGL)
+  const [webgl, setWebgl] = useState(false)
+  useEffect(() => (wants3D() ? onFirstInteraction(() => setWebgl(true)) : undefined), [])
   // Com a abertura, o orbe chega voando do preloader: aqui ele so aparece quando o voo termina
   const intro = useIntro()
   const fromIntro = intro.played
-  const sphere = (
-    <span
-      className="block size-full rounded-full"
-      style={{ background: 'radial-gradient(circle at 30% 24%, #9fb4f0 0%, #4a64b8 28%, #2a3470 62%, #181d44 100%)' }}
-    />
-  )
+  const sphere = <OrbStatic background="radial-gradient(circle at 30% 24%, #4a64b8 0%, #2f3b80 30%, #232b66 60%, #181d44 100%)" />
   return (
     <motion.span
       aria-hidden
@@ -39,12 +36,13 @@ function Orb() {
         y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: fromIntro ? 1.2 : 1.6 },
       }}
     >
-      {webgl ? (
-        <Suspense fallback={sphere}>
-          <SymbolOrb reduce={reduce} />
-        </Suspense>
-      ) : (
-        sphere
+      {sphere}
+      {webgl && (
+        <span className="absolute inset-0">
+          <Suspense fallback={null}>
+            <SymbolOrb reduce={reduce} />
+          </Suspense>
+        </span>
       )}
     </motion.span>
   )
