@@ -49,7 +49,7 @@ export function Footer() {
           {/* marca */}
           <div className="sm:col-span-2 lg:col-span-1">
             <a href={homeHref('#inicio')} aria-label="Support Nurse, início" className="inline-block">
-              <img src="/logos/horizontal-branco.svg" alt="Support Nurse Home Care Premium" className="h-12 w-auto" />
+              <img src="/logos/horizontal-branco.svg" alt="Support Nurse Home Care Premium" width={184} height={48} className="h-12 w-auto" />
             </a>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/65">{footer.about}</p>
             <ul className="mt-7 flex flex-wrap gap-2.5">

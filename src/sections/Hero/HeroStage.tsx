@@ -2,19 +2,11 @@ import { motion, useReducedMotion } from 'motion/react'
 import { lazy, Suspense, useState } from 'react'
 import { FloatingPill } from '@/components/ui/FloatingPill'
 import { hero } from '@/content/hero'
+import { canUseWebGL } from '@/lib/webgl'
 
 const SymbolScene = lazy(() => import('@/components/three/SymbolScene'))
 
 const ease = [0.16, 1, 0.3, 1] as const
-
-function canUseWebGL() {
-  try {
-    const c = document.createElement('canvas')
-    return !!(c.getContext('webgl2') || c.getContext('webgl'))
-  } catch {
-    return false
-  }
-}
 
 function Symbol3D() {
   const reduce = !!useReducedMotion()
@@ -73,6 +65,10 @@ export function HeroStage() {
         {hero.portrait ? (
           <img
             src={hero.portrait}
+            srcSet={hero.portraitSrcSet}
+            sizes="(min-width: 768px) 46vw, 80vw"
+            width={1086}
+            height={1448}
             alt="Enfermeira da Support Nurse sorrindo, de braços cruzados"
             fetchPriority="high"
             className="absolute bottom-0 left-1/2 h-[96%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_30px_40px_rgba(15,19,48,0.35)] md:h-auto md:max-h-[97%] md:w-[46vw]"

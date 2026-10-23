@@ -12,7 +12,7 @@ function Logo({ className = '' }: { className?: string }) {
     <a href={homeHref('#inicio')} aria-label="Support Nurse, início" className={`shrink-0 ${className}`}>
       {/* Smartphone: so o simbolo (libera espaco para as redes, como no header da HBO Max). Tablet em diante: logo completo. */}
       <img src="/logos/simbolo-prata.svg" alt="Support Nurse" className="size-10 md:hidden" />
-      <img src="/logos/horizontal-azul.svg" alt="Support Nurse Home Care Premium" className="hidden h-10 w-auto md:block" />
+      <img src="/logos/horizontal-azul.svg" alt="Support Nurse Home Care Premium" width={153} height={40} className="hidden h-10 w-auto md:block" />
     </a>
   )
 }
@@ -191,7 +191,7 @@ export function HeroHeader() {
             style={{ backgroundImage: 'var(--pattern-ondas)', backgroundBlendMode: 'soft-light' }}
           >
             <div className="flex items-center justify-between">
-              <img src="/logos/horizontal-branco.svg" alt="Support Nurse" className="h-10 w-auto" />
+              <img src="/logos/horizontal-branco.svg" alt="Support Nurse" width={153} height={40} className="h-10 w-auto" />
               <Burger onClick={() => setOpen(false)} open />
             </div>
             <nav className="my-auto flex flex-col gap-2">

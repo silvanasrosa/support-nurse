@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    <meta charset="UTF-8" />
+    <!-- Google Tag Manager (adiado: carrega depois da pagina, na primeira interacao ou ate 3,5s apos o load) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];var done=false;function gtm(){if(done)return;done=true;
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}
+    ['pointerdown','keydown','touchstart','scroll','wheel'].forEach(function(e){w.addEventListener(e,gtm,{once:true,passive:true})});
+    w.addEventListener('load',function(){setTimeout(gtm,3500)});
     })(window,document,'script','dataLayer','GTM-KWV3Q25H');</script>
     <!-- End Google Tag Manager -->
 
     <!-- Meta Pixel (aguardando ID) -->
     <!-- End Meta Pixel -->
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quem somos | Support Nurse Home Care Premium</title>
     <meta name="description" content="Conheça a Support Nurse: home care premium em São Paulo desde 2011, fundada por Cassia Felix. CNPJ 15.082.143/0001-67, sede na R. Augusta, 101, equipe multidisciplinar e contrato transparente." />
@@ -29,6 +31,9 @@
     <link rel="alternate" type="text/plain" title="LLMs" href="/llms.txt" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" /></noscript>
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />

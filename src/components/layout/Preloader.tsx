@@ -1,5 +1,6 @@
 import { animate, motion, useMotionTemplate, useMotionValue } from 'motion/react'
 import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { canUseWebGL } from '@/lib/webgl'
 import { layoutRect, type IntroPhase } from './intro'
 
 const SymbolOrb = lazy(() => import('@/components/three/SymbolOrb'))
@@ -208,9 +209,11 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
           aria-hidden
         >
           <span className="absolute inset-[3%] rounded-full" style={{ background: ORB_FILL }} />
-          <Suspense fallback={null}>
-            <SymbolOrb />
-          </Suspense>
+          {canUseWebGL() && (
+            <Suspense fallback={null}>
+              <SymbolOrb />
+            </Suspense>
+          )}
         </motion.div>
       </div>
 

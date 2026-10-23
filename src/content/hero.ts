@@ -41,4 +41,6 @@ export const hero = {
 
   // Caminho de um PNG recortado (sem fundo). Sem foto, o palco exibe o símbolo 3D.
   portrait: '/images/enfermeira-hero.webp' as string | undefined,
+  // versoes menores da mesma foto (o navegador escolhe pelo tamanho da tela)
+  portraitSrcSet: '/images/enfermeira-hero-640.webp 640w, /images/enfermeira-hero-860.webp 860w, /images/enfermeira-hero.webp 1086w',
 }

@@ -3,19 +3,11 @@ import { lazy, Suspense, useState } from 'react'
 import { CtaButton } from '@/components/ui/CtaButton'
 import { useIntro } from '@/components/layout/intro'
 import { hero } from '@/content/hero'
+import { canUseWebGL } from '@/lib/webgl'
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 const SymbolOrb = lazy(() => import('@/components/three/SymbolOrb'))
-
-function canUseWebGL() {
-  try {
-    const c = document.createElement('canvas')
-    return !!(c.getContext('webgl2') || c.getContext('webgl'))
-  } catch {
-    return false
-  }
-}
 
 /** Orbe 3D que substitui o primeiro "o" do titulo (assinatura da referencia): esfera com o simbolo da marca embutido. */
 function Orb() {

@@ -1,0 +1,24 @@
+# Sempre HTTPS (mantem o redirecionamento que o servidor ja faz)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Cache do navegador (servidor LiteSpeed da Hostinger)
+<IfModule mod_headers.c>
+  # JS e CSS do build tem hash no nome (main-AbC123.js): o conteudo nunca muda, pode guardar por 1 ano
+  <FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Imagens, logos e fontes: 30 dias
+  <FilesMatch "\.(webp|avif|png|jpe?g|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # Paginas: sempre confere se ha versao nova (um deploy aparece na hora)
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

@@ -1,20 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
 import { IntroContext, shouldPlayIntro, type IntroPhase } from '@/components/layout/intro'
-import { Footer } from '@/components/layout/Footer'
 import { Preloader } from '@/components/layout/Preloader'
-import { SmoothScroll } from '@/components/layout/SmoothScroll'
-import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
-import { useHashLanding } from '@/hooks/useHashLanding'
-import { Hero } from '@/sections/Hero/Hero'
-import { Benefits } from '@/sections/Benefits/Benefits'
-import { Catalog } from '@/sections/Catalog/Catalog'
-import { Faq } from '@/sections/Faq/Faq'
-import { FinalCta } from '@/sections/FinalCta/FinalCta'
-import { Founder } from '@/sections/Founder/Founder'
-import { HowItWorks } from '@/sections/HowItWorks/HowItWorks'
-import { Results } from '@/sections/Results/Results'
-import { Team } from '@/sections/Team/Team'
-import { Specialties } from '@/sections/Specialties/Specialties'
+
+// O download das secoes comeca ja, junto com o preloader (nao espera a abertura terminar)
+const sections = import('./HomeSections')
+const HomeSections = lazy(() => sections)
+const SmoothScroll = lazy(() => sections.then((m) => ({ default: m.SmoothScroll })))
 
 export default function App() {
   const [played] = useState(shouldPlayIntro)
@@ -30,34 +21,16 @@ export default function App() {
 
   const intro = useMemo(() => ({ phase, played }), [phase, played])
 
-  // chegou com ancora (ex.: menu da pagina Quem somos): vai para a secao quando as secoes estiverem montadas
-  useHashLanding(phase !== 'intro')
-
   return (
     <IntroContext.Provider value={intro}>
-      <SmoothScroll />
+      <Suspense fallback={null}>
+        <SmoothScroll />
+      </Suspense>
       {phase !== 'done' && <Preloader phase={phase} onReveal={onReveal} onDone={onDone} />}
-      <main>
-        {phase !== 'intro' && (
-          <>
-            <Hero />
-            <Specialties />
-            <Catalog />
-            <HowItWorks />
-            <Founder />
-            <Team />
-            <Benefits />
-            <Results />
-            <Faq />
-            <FinalCta />
-          </>
-        )}
-      </main>
       {phase !== 'intro' && (
-        <>
-          <Footer />
-          <WhatsAppFab />
-        </>
+        <Suspense fallback={<main />}>
+          <HomeSections />
+        </Suspense>
       )}
     </IntroContext.Provider>
   )

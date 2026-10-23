@@ -1,6 +1,6 @@
 import { Environment, Lightformer, useTexture } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 const TILT = 0.13 // inclinacao maxima (rad): o emblema se move pouco e fica sempre perto do centro do orbe
@@ -22,6 +22,25 @@ function useViewportPointer() {
     return () => window.removeEventListener('pointermove', onMove)
   }, [])
   return p
+}
+
+/** So anima enquanto o orbe esta na tela e a aba esta visivel (fora disso, nenhum quadro e desenhado). */
+function useOnScreen(ref: React.RefObject<HTMLElement | null>) {
+  const [inView, setInView] = useState(true)
+  const [tabVisible, setTabVisible] = useState(() => document.visibilityState !== 'hidden')
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting))
+    io.observe(el)
+    const onVis = () => setTabVisible(document.visibilityState !== 'hidden')
+    document.addEventListener('visibilitychange', onVis)
+    return () => {
+      io.disconnect()
+      document.removeEventListener('visibilitychange', onVis)
+    }
+  }, [ref])
+  return inView && tabVisible
 }
 
 function Orb({ reduce }: { reduce: boolean }) {
@@ -46,7 +65,7 @@ function Orb({ reduce }: { reduce: boolean }) {
   return (
     <group ref={group}>
       <mesh>
-        <sphereGeometry args={[1, 96, 96]} />
+        <sphereGeometry args={[1, 64, 64]} />
         <meshPhysicalMaterial
           color="#232b66"
           metalness={0.3}
@@ -57,7 +76,7 @@ function Orb({ reduce }: { reduce: boolean }) {
         />
       </mesh>
       <mesh rotation={[0, 0, 0]}>
-        <sphereGeometry args={[1.006, 96, 96, Math.PI / 2 - a / 2, a, Math.PI / 2 - a / 2, a]} />
+        <sphereGeometry args={[1.006, 64, 64, Math.PI / 2 - a / 2, a, Math.PI / 2 - a / 2, a]} />
         <meshPhysicalMaterial
           map={map}
           transparent
@@ -77,25 +96,29 @@ function Orb({ reduce }: { reduce: boolean }) {
 
 /** Orbe 3D inline (substitui o "o" do titulo): esfera de vidro azul marinho com o simbolo metalico embutido. */
 export default function SymbolOrb({ reduce = false }: { reduce?: boolean }) {
+  const wrap = useRef<HTMLDivElement>(null)
+  const live = useOnScreen(wrap)
   return (
-    <Canvas
-      dpr={[1, 2.5]}
-      resize={{ offsetSize: true }}
-      frameloop={reduce ? 'demand' : 'always'}
-      camera={{ position: [0, 0, 4.3], fov: 30 }}
-      gl={{ alpha: true, antialias: true }}
-      style={{ background: 'transparent', width: '100%', height: '100%' }}
-      aria-hidden
-    >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[-3, 4, 5]} intensity={1.5} />
-      <pointLight position={[3, -2, 3]} intensity={6} color="#6f9bff" />
-      <Environment resolution={64}>
-        <Lightformer form="circle" intensity={2.2} position={[-3, 3, 4]} scale={6} />
-        <Lightformer form="circle" intensity={1} color="#7aa7ff" position={[4, -1, 3]} scale={5} />
-        <Lightformer form="circle" intensity={1.4} color="#ffffff" position={[0, 0, 8]} scale={14} />
-      </Environment>
-      <Orb reduce={reduce} />
-    </Canvas>
+    <div ref={wrap} style={{ width: '100%', height: '100%' }}>
+      <Canvas
+        dpr={[1, 2]}
+        resize={{ offsetSize: true }}
+        frameloop={reduce || !live ? 'demand' : 'always'}
+        camera={{ position: [0, 0, 4.3], fov: 30 }}
+        gl={{ alpha: true, antialias: true }}
+        style={{ background: 'transparent', width: '100%', height: '100%' }}
+        aria-hidden
+      >
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[-3, 4, 5]} intensity={1.5} />
+        <pointLight position={[3, -2, 3]} intensity={6} color="#6f9bff" />
+        <Environment resolution={64}>
+          <Lightformer form="circle" intensity={2.2} position={[-3, 3, 4]} scale={6} />
+          <Lightformer form="circle" intensity={1} color="#7aa7ff" position={[4, -1, 3]} scale={5} />
+          <Lightformer form="circle" intensity={1.4} color="#ffffff" position={[0, 0, 8]} scale={14} />
+        </Environment>
+        <Orb reduce={reduce} />
+      </Canvas>
+    </div>
   )
 }
