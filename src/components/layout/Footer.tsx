@@ -122,7 +122,16 @@ export function Footer() {
             © {YEAR} Support Nurse Home Care Premium · CNPJ {site.cnpj}
           </p>
           <div className="flex items-center justify-between gap-6 md:justify-end">
-            <p>{footer.credits}</p>
+            <a
+              href={footer.credits.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${footer.credits.label} ${footer.credits.name}`}
+              className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
+            >
+              <span>{footer.credits.label}</span>
+              <img src={footer.credits.logo} alt={footer.credits.name} loading="lazy" decoding="async" className="h-12 w-auto" />
+            </a>
             <button
               type="button"
               onClick={() => scrollToY(0, 1.6)}

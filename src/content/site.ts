@@ -65,7 +65,12 @@ export const footer = {
       ],
     },
   ],
-  credits: '15 anos em São Paulo · Fundada em 10/05/2011 por Cassia Felix',
+  credits: {
+    label: 'Desenvolvido por:',
+    name: 'Prosperar Ideias',
+    logo: '/logos/logo-prosperar-ideias.webp',
+    href: 'https://api.whatsapp.com/send/?phone=5511985798767&text&type=phone_number&app_absent=0',
+  },
 }
 
 /** Ancoras que as outras paginas tambem tem (o contato no fim, a equipe na Quem somos): continuam na pagina atual. */

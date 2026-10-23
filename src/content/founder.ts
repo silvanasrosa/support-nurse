@@ -33,18 +33,17 @@ export const founder = {
     year: '2011',
   },
 
-  // TODO: biografia PROVISORIA, trocar pelo texto real da Cassia
   bio: {
     eyebrow: 'Biografia',
     title: 'O padrão dos grandes hospitais,',
     titleAccent: 'dentro da sua casa.',
     paragraphs: [
-      '[Texto provisório] Aqui entra a história da Cassia: a formação em enfermagem, os anos de prática em hospitais de referência e a especialização que a levou à coordenação clínica.',
-      '[Texto provisório] E o momento em que decidiu fundar a Support Nurse, em 2011, para levar o mesmo rigor técnico e o mesmo cuidado humano para dentro da casa das famílias.',
+      'CEO e Responsável Técnica da Support Nurse Home Care Premium. De maio de 2008 a novembro de 2018, foi Enfermeira Encarregada da Subcomissão de Controle de Infecção Hospitalar do Instituto de Ortopedia e Traumatologia do Hospital das Clínicas da FMUSP.',
+      'Graduada em Enfermagem pela Universidade do Grande ABC (2004), tem ampla experiência em Controle de Infecção, Epidemiologia Hospitalar e Pesquisa Clínica, com trabalhos científicos apresentados em congressos internacionais.',
     ],
     facts: [
-      { label: 'Trajetória', value: '[Formação principal e tempo de atuação em home care]' },
-      { label: 'Experiência clínica', value: '[Hospitais onde atuou antes de fundar a Support Nurse]' },
+      { label: 'Hospital das Clínicas FMUSP', value: '10 anos no Controle de Infecção Hospitalar do Instituto de Ortopedia e Traumatologia (2008 a 2018).' },
+      { label: 'Publicação científica', value: 'Estudo sobre prevenção de infecção de corrente sanguínea em UTI cirúrgica: pôster em congresso internacional (2011) e artigo na revista Clinics (2012).' },
     ],
   },
 }
