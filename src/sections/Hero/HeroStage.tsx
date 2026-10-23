@@ -66,7 +66,7 @@ export function HeroStage() {
           <img
             src={hero.portrait}
             srcSet={hero.portraitSrcSet}
-            sizes="(min-width: 768px) 46vw, 80vw"
+            sizes={hero.portraitSizes}
             width={1086}
             height={1448}
             alt="Enfermeira da Support Nurse sorrindo, de braços cruzados"

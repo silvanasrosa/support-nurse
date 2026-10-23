@@ -123,7 +123,7 @@ export function ReviewCard({ review }: { review: Review }) {
     <article className="glass-liquid relative flex h-full flex-col rounded-[2rem] p-7 lg:p-8">
       <Quotes aria-hidden size={72} weight="fill" className="absolute top-5 right-5 size-12 text-gold/15 sm:right-6 sm:size-[72px]" />
       <header className="flex items-center gap-3 pr-10 sm:pr-14">
-        <img src={review.photo} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-full object-cover ring-2 ring-white" />
+        <img src={review.photo} alt="" width={44} height={44} loading="lazy" decoding="async" className="size-11 shrink-0 rounded-full object-cover ring-2 ring-white" />
         <div className="min-w-0">
           <p className="leading-tight font-semibold text-navy">{review.name}</p>
           <p className="text-xs text-graphite/60">{review.meta}</p>

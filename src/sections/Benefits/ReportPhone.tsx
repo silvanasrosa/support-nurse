@@ -192,7 +192,7 @@ export function ReportPhone() {
           <div className="relative z-10 flex shrink-0 items-center gap-1.5 px-2 py-1.5 text-white" style={{ background: WA.header }}>
             <ArrowLeft size={14} weight="bold" />
             <span className="grid size-7 shrink-0 place-items-center rounded-full bg-navy ring-1 ring-white/30">
-              <img src="/logos/simbolo-branco.svg" alt="" className="size-4" />
+              <img src="/logos/simbolo-branco.svg" alt="" width={16} height={16} className="size-4" />
             </span>
             <span className="min-w-0 flex-1 leading-tight">
               <span className="block truncate text-[11.5px] font-semibold">{chat.name}</span>

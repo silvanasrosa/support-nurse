@@ -11,7 +11,7 @@ function Logo({ className = '' }: { className?: string }) {
   return (
     <a href={homeHref('#inicio')} aria-label="Support Nurse, início" className={`shrink-0 ${className}`}>
       {/* Smartphone: so o simbolo (libera espaco para as redes, como no header da HBO Max). Tablet em diante: logo completo. */}
-      <img src="/logos/simbolo-prata.svg" alt="Support Nurse" className="size-10 md:hidden" />
+      <img src="/logos/simbolo-prata.svg" alt="Support Nurse" width={40} height={40} className="size-10 md:hidden" />
       <img src="/logos/horizontal-azul.svg" alt="Support Nurse Home Care Premium" width={153} height={40} className="hidden h-10 w-auto md:block" />
     </a>
   )

@@ -130,7 +130,7 @@ export function Footer() {
               className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
             >
               <span>{footer.credits.label}</span>
-              <img src={footer.credits.logo} alt={footer.credits.name} loading="lazy" decoding="async" className="h-12 w-auto" />
+              <img src={footer.credits.logo} alt={footer.credits.name} width={120} height={48} loading="lazy" decoding="async" className="h-12 w-auto" />
             </a>
             <button
               type="button"

@@ -286,11 +286,13 @@ function FounderPinned({ reduce }: { reduce: boolean }) {
             style={{ height: 'min(86%, 56vw)', aspectRatio: '1086 / 1448' }}
           >
             <div data-f-halo aria-hidden className="absolute top-[4%] left-1/2 aspect-square w-[118%] -translate-x-1/2 rounded-full" style={{ background: HALO }} />
-            <img data-f-v1 src={founder.photos.intro.src} alt={founder.photos.intro.alt} decoding="async" className="absolute inset-0 size-full object-contain object-bottom" />
+            <img data-f-v1 src={founder.photos.intro.src} alt={founder.photos.intro.alt} width={1086} height={1448} decoding="async" className="absolute inset-0 size-full object-contain object-bottom" />
             <img
               data-f-v2
               src={founder.photos.bio.src}
               alt={founder.photos.bio.alt}
+              width={1086}
+              height={1448}
               decoding="async"
               className="invisible absolute inset-0 size-full object-contain object-bottom opacity-0"
             />
@@ -327,7 +329,7 @@ function FounderStacked() {
           style={{ aspectRatio: '1086 / 1448' }}
         >
           <div aria-hidden className="absolute top-[4%] left-1/2 aspect-square w-[118%] -translate-x-1/2 rounded-full" style={{ background: HALO }} />
-          <img src={founder.photos.intro.src} alt={founder.photos.intro.alt} loading="lazy" decoding="async" className="absolute inset-0 size-full object-contain object-bottom" />
+          <img src={founder.photos.intro.src} alt={founder.photos.intro.alt} width={1086} height={1448} loading="lazy" decoding="async" className="absolute inset-0 size-full object-contain object-bottom" />
           <FounderRoles className="absolute top-[38%] right-0 items-end [&_li]:ml-0" />
         </motion.div>
         <div className="relative z-10 -mx-3 -mt-20 pb-3">
