@@ -27,6 +27,8 @@ export default function App() {
         <SmoothScroll />
       </Suspense>
       {phase !== 'done' && <Preloader phase={phase} onReveal={onReveal} onDone={onDone} />}
+      {/* durante a abertura, a pagina ja tem o ponto de referencia principal (leitores de tela) */}
+      {phase === 'intro' && <main />}
       {phase !== 'intro' && (
         <Suspense fallback={<main />}>
           <HomeSections />

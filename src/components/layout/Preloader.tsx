@@ -35,6 +35,7 @@ const DRAW = 2.2 // s: batimento ate o centro
 const EXPAND = 0.7 // s: orbe cobre a tela
 const HOLD = 0.6 // s: tela azul com o logo
 const COLLAPSE = 0.9 // s: azul encolhe ate o titulo
+const ORB_ONLY = 0.35 // s: no celular, tempo do orbe parado no centro antes de abrir
 
 // Azul "vidro do orbe": navy com brilho suave
 const ORB_FILL =
@@ -53,6 +54,7 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
   const [vh, setVh] = useState(() => window.innerHeight)
   const [stage, setStage] = useState<'draw' | 'expand' | 'hold' | 'collapse'>('draw')
 
+  const [noDraw] = useState(() => window.innerWidth < 768) // celular: sem o batimento
   const S = Math.round(Math.min(96, Math.max(54, vw * 0.07))) // orbe na ponta da linha
   const cx = vw / 2
   const cy = vh / 2
@@ -105,6 +107,33 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
     }
     let stops: Array<() => void> = []
     let timer = 0
+    // o orbe chega ao centro e se expande ate cobrir a tela
+    const expand = () => {
+      setStage('expand')
+      circR.set(S / 2)
+      circOpacity.set(1)
+      const ease = [0.76, 0, 0.24, 1] as const
+      stops = [
+        animate(circR, R, { duration: EXPAND, ease }).stop,
+        animate(orbOpacity, 0, { duration: EXPAND * 0.45, ease: 'easeOut' }).stop,
+      ]
+      timer = window.setTimeout(() => {
+        setStage('hold')
+        timer = window.setTimeout(onReveal, HOLD * 1000) // monta a hero e inicia o colapso
+      }, EXPAND * 1000)
+    }
+
+    // Celular: sem o batimento (abertura mais curta, a primeira tela aparece antes). O orbe ja nasce no centro.
+    if (noDraw) {
+      x.set(cx - S / 2)
+      y.set(cy - S / 2)
+      timer = window.setTimeout(expand, ORB_ONLY * 1000)
+      return () => {
+        stops.forEach((s) => s())
+        window.clearTimeout(timer)
+      }
+    }
+
     const draw = animate(0, 1, {
       duration: DRAW,
       delay: 0.2,
@@ -117,21 +146,7 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
         path.style.strokeDashoffset = off
         glow.style.strokeDashoffset = off
       },
-      onComplete: () => {
-        // o orbe chega ao centro e se expande ate cobrir a tela
-        setStage('expand')
-        circR.set(S / 2)
-        circOpacity.set(1)
-        const ease = [0.76, 0, 0.24, 1] as const
-        stops = [
-          animate(circR, R, { duration: EXPAND, ease }).stop,
-          animate(orbOpacity, 0, { duration: EXPAND * 0.45, ease: 'easeOut' }).stop,
-        ]
-        timer = window.setTimeout(() => {
-          setStage('hold')
-          timer = window.setTimeout(onReveal, HOLD * 1000) // monta a hero e inicia o colapso
-        }, EXPAND * 1000)
-      },
+      onComplete: expand,
     })
     return () => {
       draw.stop()
@@ -185,7 +200,8 @@ export function Preloader({ phase, onReveal, onDone }: Props) {
         <motion.svg
           className="absolute inset-0 size-full overflow-visible"
           viewBox={`0 0 ${vw} ${vh}`}
-          animate={{ opacity: stage === 'draw' ? 1 : 0 }}
+          initial={noDraw ? { opacity: 0 } : undefined}
+          animate={{ opacity: stage === 'draw' && !noDraw ? 1 : 0 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
           aria-hidden
         >

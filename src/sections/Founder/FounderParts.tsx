@@ -151,7 +151,7 @@ export function FounderBio({ tone }: { tone: Tone }) {
       <dl className="grid gap-5 sm:grid-cols-2 md:max-lg:gap-4">
         {bio.facts.map((f) => (
           <div key={f.label}>
-            <dt className="text-[11px] font-semibold tracking-[0.16em] text-gold uppercase md:max-lg:text-[9.5px]">{f.label}</dt>
+            <dt className={`text-[11px] font-semibold tracking-[0.16em] uppercase md:max-lg:text-[9.5px] ${dark ? 'text-gold' : 'text-bronze'}`}>{f.label}</dt>
             <dd className={`mt-1.5 text-[14px] leading-relaxed md:max-lg:mt-1 md:max-lg:text-[11.5px] ${dark ? 'text-white/70' : 'text-graphite/80'}`}>
               {f.value}
             </dd>
