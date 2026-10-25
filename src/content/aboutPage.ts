@@ -5,7 +5,7 @@ export const aboutPage = {
   eyebrow: 'Quem somos',
   title: 'Conheça a',
   titleAccent: 'Support Nurse.',
-  text: 'Home care premium de alta complexidade em São Paulo. 15 anos levando o padrão hospitalar pra dentro da casa das famílias que confiam na gente.',
+  text: 'Empresa de home care premium de alta complexidade em São Paulo. 15 anos levando o padrão hospitalar pra dentro da casa das famílias que confiam na gente.',
   founded: 'Fundada em 10/05/2011 por Cassia Felix.',
   cta: { label: 'Conte-nos o que precisa', href: '#contato' },
 

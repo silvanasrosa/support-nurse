@@ -8,7 +8,7 @@ export const howItWorks = {
   title: 'Da sua ligação ao primeiro turno',
   titleAccent: 'em até 24 horas.',
   intro:
-    'Home care de alta complexidade não pode improvisar. Nossa operação foi desenhada para você começar rápido, sem abrir mão de nenhuma etapa clínica.',
+    'Home care de alta complexidade em São Paulo não pode improvisar. Nossa operação foi desenhada para você começar rápido, sem abrir mão de nenhuma etapa clínica.',
 
   steps: [
     {

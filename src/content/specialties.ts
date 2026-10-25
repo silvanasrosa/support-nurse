@@ -5,7 +5,7 @@ export const specialties = {
   title: 'Alta complexidade é o nosso',
   titleAccent: 'território há 15 anos.',
   intro:
-    'Cada tipo de cuidado exige um protocolo diferente. Escolha o seu: nossa equipe já cuidou de centenas de casos como o do seu familiar.',
+    'Cada tipo de cuidado domiciliar exige um protocolo diferente. Escolha o seu: nossa equipe de home care em São Paulo já cuidou de centenas de casos como o do seu familiar.',
 
   seals: [
     { icon: 'stethoscope', value: '8+', label: 'especialidades na equipe' },
@@ -18,7 +18,7 @@ export const specialties = {
       id: 'pos-cirurgico',
       icon: 'firstAid',
       title: 'Pós-cirúrgico premium',
-      text: 'Pós-plástica, ortopédica, cardíaca e trauma. Monitoramento de sinais vitais, curativos complexos, controle da dor e mobilização segura. Ativação em 24 horas para alta programada ou urgente.',
+      text: 'Cuidados de enfermagem em casa após a cirurgia: pós-plástica, ortopédica, cardíaca e trauma. Monitoramento de sinais vitais, curativos complexos, controle da dor e mobilização segura. Ativação em 24 horas para alta programada ou urgente.',
       protocol: {
         lead: 'Recuperação com padrão clínico hospitalar, do primeiro dia em casa até a alta.',
         list: [
@@ -34,7 +34,7 @@ export const specialties = {
       id: 'acamados',
       icon: 'bed',
       title: 'Acamados e cuidado prolongado',
-      text: 'Prevenção de escaras, higiene digna, mobilização, gastrostomia, traqueostomia, sonda vesical e aspiração. Enfermagem com experiência em UTI. Períodos de 6, 8, 12 ou 24 horas.',
+      text: 'Home care para paciente acamado: prevenção de escaras, higiene digna, mobilização, gastrostomia, traqueostomia, sonda vesical e aspiração. Enfermagem com experiência em UTI. Períodos de 6, 8, 12 ou 24 horas.',
       protocol: {
         lead: 'Cuidado contínuo, com técnica de UTI e respeito à rotina da família.',
         list: [
@@ -50,7 +50,7 @@ export const specialties = {
       id: 'idosos',
       icon: 'heart',
       title: 'Idosos com dependência',
-      text: 'Parkinson, Alzheimer, sequelas de AVC e quadros crônicos. Cuidado que preserva a autonomia sempre que possível e sustenta a dignidade quando ela precisa ser sustentada.',
+      text: 'Enfermagem domiciliar para idosos com Parkinson, Alzheimer, sequelas de AVC e quadros crônicos. Cuidado que preserva a autonomia sempre que possível e sustenta a dignidade quando ela precisa ser sustentada.',
       protocol: {
         lead: 'Autonomia preservada, dignidade sustentada.',
         list: [
@@ -66,7 +66,7 @@ export const specialties = {
       id: 'medicamentosa',
       icon: 'syringe',
       title: 'Terapia medicamentosa',
-      text: 'Antibioticoterapia endovenosa, terapia subcutânea, imunização e aplicação de medicamentos controlados. Sob prescrição médica, com protocolo hospitalar e registro em prontuário.',
+      text: 'Administração de medicamentos em domicílio: antibioticoterapia endovenosa, terapia subcutânea, imunização e aplicação de medicamentos controlados. Sob prescrição médica, com protocolo hospitalar e registro em prontuário.',
       protocol: {
         lead: 'Administração de medicamentos de alta complexidade, com segurança e rastreabilidade.',
         list: [

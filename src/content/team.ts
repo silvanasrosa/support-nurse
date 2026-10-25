@@ -10,7 +10,7 @@ export const team = {
     title: 'A expertise dos grandes hospitais,',
     titleAccent: 'na sua casa.',
     intro:
-      'Com uma equipe multidisciplinar altamente qualificada, a Support Nurse leva à residência de seus clientes a qualidade e a expertise dos grandes hospitais: assistência domiciliar de baixa, média e alta complexidade, em períodos de 3, 6, 8, 12 ou 24 horas, com atendimento customizado e precisão clínica.',
+      'Com uma equipe multidisciplinar altamente qualificada, a Support Nurse leva à residência de seus clientes em São Paulo a qualidade e a expertise dos grandes hospitais: assistência domiciliar de baixa, média e alta complexidade, em períodos de 3, 6, 8, 12 ou 24 horas, com atendimento customizado e precisão clínica.',
     roles: [
       {
         id: 'enfermeiro',

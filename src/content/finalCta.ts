@@ -5,7 +5,7 @@ export const finalCta = {
   eyebrow: 'Alta hospitalar prevista?',
   title: 'Estamos prontos.',
   titleAccent: 'Conte-nos o que precisa.',
-  text: 'A entrevista com a coordenadora clínica é gratuita e pode ser feita no hospital ou na sua casa, no mesmo dia. Em 15 minutos ao telefone entendemos o caso e agendamos a visita. A operação começa em até 24 horas depois do plano assinado.',
+  text: 'Atendimento domiciliar para paciente de alta hospitalar em São Paulo. A entrevista com a coordenadora clínica é gratuita e pode ser feita no hospital ou na sua casa, no mesmo dia. Em 15 minutos ao telefone entendemos o caso e agendamos a visita. A operação começa em até 24 horas depois do plano assinado.',
   quote: 'Você não contrata uma diária de home care. Você contrata um plano de cuidados sob medida.',
   phoneLabel: 'Central 24h',
 

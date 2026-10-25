@@ -17,7 +17,7 @@ export const hero = {
 
   side: {
     title: 'Cuidado de hospital,\nno conforto de casa',
-    text: 'Pós-cirúrgico, acamados, idosos e terapia medicamentosa com equipe multidisciplinar, plano de cuidados por escrito e central de urgência 24 horas.',
+    text: 'Atendimento domiciliar de enfermagem em São Paulo: pós-cirúrgico, acamados, idosos e terapia medicamentosa com equipe multidisciplinar, plano de cuidados por escrito e central de urgência 24 horas.',
   },
 
   // Rótulos flutuantes de vidro. x e y em % do palco central (tablet e desktop); mobile = posição no smartphone.
