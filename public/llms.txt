@@ -1,6 +1,6 @@
 # Support Nurse Home Care Premium
 
-> Empresa de home care (assistência domiciliar) de alta complexidade em São Paulo, fundada em 10/05/2011 por Cassia Felix. Leva o padrão dos grandes hospitais para dentro da casa do paciente, com equipe multidisciplinar supervisionada por coordenação clínica de enfermagem.
+> Empresa de home care (assistência domiciliar) de alta complexidade em São Paulo e na Grande São Paulo, fundada em 10/05/2011 por Cassia Felix. Leva o padrão dos grandes hospitais para dentro da casa do paciente, com equipe multidisciplinar supervisionada por coordenação clínica de enfermagem.
 
 ## Dados da empresa
 - Nome: Support Nurse Home Care Premium
@@ -10,7 +10,12 @@
 - Central 24h: (11) 3132-4161
 - WhatsApp: (11) 97563-8606 (https://wa.me/5511975638606)
 - E-mail: contato@supportnurse.com.br
-- Área de atendimento: cidade de São Paulo (toda a capital)
+- Área de atendimento: cidade de São Paulo (todas as zonas) e os 39 municípios da Região Metropolitana de São Paulo (Grande SP)
+  - ABC: Santo André, São Bernardo do Campo, São Caetano do Sul, Diadema, Mauá, Ribeirão Pires, Rio Grande da Serra
+  - Oeste: Barueri (inclui Alphaville), Santana de Parnaíba, Osasco, Carapicuíba, Itapevi, Jandira, Pirapora do Bom Jesus
+  - Sudoeste: Cotia, Taboão da Serra, Embu das Artes, Itapecerica da Serra, Embu-Guaçu, Vargem Grande Paulista, São Lourenço da Serra, Juquitiba
+  - Leste / Alto Tietê: Guarulhos, Mogi das Cruzes, Suzano, Itaquaquecetuba, Arujá, Poá, Ferraz de Vasconcelos, Santa Isabel, Guararema, Biritiba Mirim, Salesópolis
+  - Norte: Caieiras, Mairiporã, Franco da Rocha, Francisco Morato, Cajamar
 - Avaliação no Google: 4,5 de 5 (43 avaliações)
 
 ## Serviços
@@ -37,3 +42,4 @@
 ## Páginas
 - [Página inicial](https://supportnurse.com.br/): serviços, como funciona, equipe, avaliações, perguntas frequentes e contato
 - [Quem somos](https://supportnurse.com.br/quem-somos/): fundadora, CNPJ, endereço, equipe e transparência
+- [Áreas atendidas](https://supportnurse.com.br/areas-atendidas/): cidades da capital e da Grande São Paulo atendidas, por sub-região, e perguntas frequentes sobre atendimento fora da capital

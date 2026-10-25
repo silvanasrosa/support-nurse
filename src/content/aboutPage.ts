@@ -22,6 +22,6 @@ export const aboutPage = {
     { value: '100%', label: 'Equipe certificada e supervisionada' },
     { value: '8+', label: 'Especialidades multidisciplinares' },
     { value: '3 a 24h', label: 'Períodos flexíveis de atendimento' },
-    { value: 'SP', label: 'Cobertura em toda a capital' },
+    { value: 'SP', label: 'Capital e Grande São Paulo' },
   ],
 }

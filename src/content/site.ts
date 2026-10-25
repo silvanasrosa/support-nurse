@@ -43,7 +43,7 @@ export const whatsappWith = (text: string) => `https://wa.me/${site.whatsapp.num
 
 /** Rodape (texto e colunas do esboco). Links "#secao" passam por homeHref. */
 export const footer = {
-  about: 'Home care premium de alta complexidade em São Paulo. 15 anos levando o padrão hospitalar pra dentro da casa das famílias que confiam na gente.',
+  about: 'Home care premium de alta complexidade em São Paulo e na Grande SP. 15 anos levando o padrão hospitalar pra dentro da casa das famílias que confiam na gente.',
   columns: [
     {
       title: 'Serviços',
@@ -58,6 +58,7 @@ export const footer = {
       title: 'Empresa',
       links: [
         { label: 'Quem somos', href: '/quem-somos/' },
+        { label: 'Áreas atendidas', href: '/areas-atendidas/' },
         { label: 'A equipe', href: '#equipe' },
         { label: 'Como funciona', href: '#como-funciona' },
         { label: 'Perguntas frequentes', href: '#faq' },

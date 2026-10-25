@@ -10,7 +10,7 @@ export const specialties = {
   seals: [
     { icon: 'stethoscope', value: '8+', label: 'especialidades na equipe' },
     { icon: 'clock', value: '3 a 24h', label: 'períodos flexíveis' },
-    { icon: 'map', value: 'SP', label: 'toda a capital' },
+    { icon: 'map', value: 'SP', label: 'capital e Grande SP' },
   ],
 
   items: [
